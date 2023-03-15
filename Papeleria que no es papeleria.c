@@ -48,24 +48,9 @@ struct producto
     int stock;
 };
 
-int main() {
-    struct producto productos[60];
-    int n;
-
-    printf("Ingrese el número de productos (1-50): ");
-    scanf("%d", &n);
-
-    if (n < 1)
-    {
-        printf("Debe de contener mínimo 1 producto");
-    }
-    else if (n > 50)
-    {
-        printf("Se ha superado la cantidad inicial máxima de productos");
-    }
-    else
-    {
-        for (int i = 0; i < n; i++)
+void captura_productos(int numProduct){
+    //Capturar los datos de nuevos productos, para ello necesitamos el numero de prod. @numProduct a capturar para la fincion
+    for (int i = 0; i < n; i++)
         {
             printf("Ingrese el nombre del producto #%d: ", i+1);
             scanf("%s", productos[i].nombre);
@@ -85,6 +70,27 @@ int main() {
             printf("Precio: $%.2f\n", productos[i].precio);
             printf("Stock: %d unidades\n\n", productos[i].stock);
         }
+
+}
+
+int main() {
+    struct producto productos[60];
+    int n;
+
+    printf("Ingrese el número de productos (1-50): ");
+    scanf("%d", &n);
+
+    if (n < 1)
+    {
+        printf("Debe de contener mínimo 1 producto");
+    }
+    else if (n > 50)
+    {
+        printf("Se ha superado la cantidad inicial máxima de productos");
+    }
+    else
+    {
+        captura_productos(n);
 
         //Ordenar los productos
 
