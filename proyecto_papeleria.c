@@ -9,8 +9,8 @@ struct producto
     char identificador[9];
     float precio;
     int stock;
-    char cliente[10];
-    char fabricante[15];
+    char cliente[25];
+    char fabricante[30];
 };
 
 /*Esta funcion es de control, verifica que la entrada @val caiga dentro del rango establecido de @max y @min, de igual forma 
