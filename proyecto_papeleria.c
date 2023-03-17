@@ -1,44 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
-/*
-Hojas de tamaño carta en blanco: HojCarBla
-Hojas de tamaño oficio en blanco: HojOfiBla
-Hojas foami: HojFoaBla
-Lapiz del número 2: LapNumDos
-Lapiz bicolor: LapTipBic
-Lapiz metalico: LapTipMet
-Paquete de lapices de colores: PaqLapCol
-Pluma negra: PlumColNegr
-Pluma roja: PluColRoj
-Pluma azul: PluColAzu
-Pluma tricolor: PluColTri
-Gises blancos: GisColBlanco
-Gises Rojos: GisColRoj
-Paquete de Crayolas: PaqCrayolasCol
-Tajador de madera: TajTipMad
-Tajador metalico: TajTipMet
-Borrador: BorradBla
-Pegamento: PegameLiq
-KolaLoka: KolaLoka
-cinta scorch: CinTipScor
-Libretas de cuadros: LibTipCua
-Carptea comun: CarTipCom
-Capreta plastilizada: CarTipPla
-Cartulina: CartulBla
-Papel cascaron de 1/4: PapCas1/4
-Papel carscaron de 1/2: PapCas1/2
-Papel bond de cuadros: PapBondCua
-Papel bond en blanco: PapBondBla
-Papel de regalo: PapTipReg
-Plastilina: Plastilin
-Pintutra acrilicos: PinTipAcri
-Pinceles: PinParPint
-JugueteSquichi: JugTipSqu
-JugueteAnimalitos: JugTipAni
-JugueteDinosaurios: TipJugDin
-JugueteMuñeca: TipJugMuñ
-*/
 
 struct producto
 {
@@ -46,11 +9,27 @@ struct producto
     char identificador[9];
     float precio;
     int stock;
+    char cliente[10];
+    char fabricante[15];
 };
 
-void captura_productos(int numProduct){
+/*Esta funcion es de control, verifica que la entrada @val caiga dentro del rango establecido de @max y @min, de igual forma 
+se establecio que solo funcione con un numero limitado de @intentos*/
+int control_input(int val, int max, int min, short intentos){
+	
+	while((val < min || val > max) && intentos > 0){
+		printf("Ha ingresado un valor icorrecto, porfavor escriba el digito que aparece al lado de la opcion que desea, le quedan %d intentos\n", intentos);
+		printf("Teclea un digito para seleccionar: ");
+		scanf("%d", &val);
+		intentos--;
+	}
+	
+	return val;
+}
+
+void captura_productos(int numProduct, struct producto productos[]){
     //Capturar los datos de nuevos productos, para ello necesitamos el numero de prod. @numProduct a capturar para la fincion
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < numProduct; i++)
         {
             printf("Ingrese el nombre del producto #%d: ", i+1);
             scanf("%s", productos[i].nombre);
@@ -63,7 +42,7 @@ void captura_productos(int numProduct){
         }
 
         printf("\nLista de productos:\n");
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < numProduct; i++)
         {
             printf("Producto #%d: %s\n", i+1, productos[i].nombre);
             printf("Identificador: %d \n", productos[i].identificador);
@@ -75,26 +54,23 @@ void captura_productos(int numProduct){
 
 int main() {
     struct producto productos[60];
-    int n;
+    int sel_var = 0;
+    bool control_menu = true;
 
-    printf("Ingrese el número de productos (1-50): ");
-    scanf("%d", &n);
-
-    if (n < 1)
-    {
-        printf("Debe de contener mínimo 1 producto");
-    }
-    else if (n > 50)
-    {
-        printf("Se ha superado la cantidad inicial máxima de productos");
-    }
-    else
-    {
-        captura_productos(n);
-
-        //Ordenar los productos
-
-        //Buscar x producto
+    while(control_menu == true){
+        printf("Bienvenido al sistema de administracion de la papeleria\nselecciona como deseas acceder\n1. ADMIN. TIENDA\n2. CLIENTE\n3. SALIR\nTeclea un digito para seleccionar: ");
+        scanf("%d", &sel_var);
+        control_input(sel_var, 3, 1, 3);
+        
+        
+        switch(sel_var){
+        	case 1:
+        		break;
+        	case 2:
+        		break;
+        	default:
+        		control_menu = false;
+		}
     }
 
     return 0;
