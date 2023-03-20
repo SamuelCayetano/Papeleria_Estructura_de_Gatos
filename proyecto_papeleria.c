@@ -15,7 +15,7 @@ struct producto
 
 /*Esta funcion es de control, verifica que la entrada @val caiga dentro del rango establecido de @max y @min, de igual forma 
 se establecio que solo funcione con un numero limitado de @intentos*/
-int control_input(int val, int max, int min, short intentos){
+int control_input_intentos(int val, int max, int min, short intentos){
 	
 	while((val < min || val > max) && intentos > 0){
 		printf("Ha ingresado un valor icorrecto, porfavor escriba el digito que aparece al lado de la opcion que desea, le quedan %d intentos\n", intentos);
@@ -40,11 +40,6 @@ int control_input_indef(int val, int max, int min){
 	return val;
 }
 
-void sel_recursiva(){
-	printf("Bienvenido al sistema de administracion de la papeleria\nselecciona como deseas acceder\n1. ADMIN. TIENDA\n2. CLIENTE\n3. SALIR\nTeclea un digito para seleccionar: ");
-    scanf("%d", &sel_var);
-    control_input_intentos(sel_var, 3, 1, 3);	
-}
 
 void captura_productos(int numProduct, struct producto productos[]){
     //Capturar los datos de nuevos productos, para ello necesitamos el numero de prod. @numProduct a capturar para la fincion
@@ -80,7 +75,6 @@ int main() {
         printf("Bienvenido al sistema de administracion de la papeleria\nselecciona como deseas acceder\n1. ADMIN. TIENDA\n2. CLIENTE\n3. SALIR\nTeclea un digito para seleccionar: ");
         scanf("%d", &sel_var);
         control_input_intentos(sel_var, 3, 1, 3);
-        
         
         switch(sel_var){
         	case 1:
