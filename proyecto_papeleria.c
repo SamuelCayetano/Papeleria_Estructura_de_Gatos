@@ -27,6 +27,25 @@ int control_input(int val, int max, int min, short intentos){
 	return val;
 }
 
+/*Esta funcion es de control pero no tiene un numero de intentos definido ya que, verifica que la entreada @val caiga dentro del rango establecido de @max y @min
+por lo que en caso de no caer en dicho rango esta funcion le seguira pidiendo al usuario indefinidamente que ingrese un numero correcto que corresponda al rango*/
+int control_input_indef(int val, int max, int min){
+	
+	while(val < min ||val > max){
+		printf("Ha ingresado un valor icorrecto, porfavor escriba el digito que aparece al lado de la opcion que desea.");
+		printf("Teclea un digito para seleccionar: ");
+		scanf("%d", &val);
+	}
+	
+	return val;
+}
+
+void sel_recursiva(){
+	printf("Bienvenido al sistema de administracion de la papeleria\nselecciona como deseas acceder\n1. ADMIN. TIENDA\n2. CLIENTE\n3. SALIR\nTeclea un digito para seleccionar: ");
+    scanf("%d", &sel_var);
+    control_input_intentos(sel_var, 3, 1, 3);	
+}
+
 void captura_productos(int numProduct, struct producto productos[]){
     //Capturar los datos de nuevos productos, para ello necesitamos el numero de prod. @numProduct a capturar para la fincion
     for (int i = 0; i < numProduct; i++)
@@ -60,7 +79,7 @@ int main() {
     while(control_menu == true){
         printf("Bienvenido al sistema de administracion de la papeleria\nselecciona como deseas acceder\n1. ADMIN. TIENDA\n2. CLIENTE\n3. SALIR\nTeclea un digito para seleccionar: ");
         scanf("%d", &sel_var);
-        control_input(sel_var, 3, 1, 3);
+        control_input_intentos(sel_var, 3, 1, 3);
         
         
         switch(sel_var){
