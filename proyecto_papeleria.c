@@ -20,17 +20,7 @@ struct producto
 
 /*Esta funcion es de control, verifica que la entrada @val caiga dentro del rango establecido de @max y @min, de igual forma 
 se establecio que solo funcione con un numero limitado de @intentos*/
-int control_input_intentos(int val, int max, int min, short intentos){
-	
-	while((val < min || val > max) && intentos > 0){
-		printf("Ha ingresado un valor icorrecto, porfavor escriba el digito que aparece al lado de la opcion que desea, le quedan %d intentos\n", intentos);
-		printf("Teclea un digito para seleccionar: ");
-		scanf("%d", &val);
-		intentos--;
-	}
-	
-	return val;
-}
+
 
 /*Esta funcion es de control pero no tiene un numero de intentos definido ya que, verifica que la entreada @val caiga dentro del rango establecido de @max y @min
 por lo que en caso de no caer en dicho rango esta funcion le seguira pidiendo al usuario indefinidamente que ingrese un numero correcto que corresponda al rango*/
