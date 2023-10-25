@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Papelería</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+  <body>
+    <div class="margin-up">
+      <h1 class="margin-up-title">PAPELERÍA</h1>
+      <i class="margin-up-p">¡Bienvenido a la página de administración de productos de nuestra papelería!
+
+        Aquí podrás gestionar y controlar todos los productos disponibles en nuestro catálogo. Desde esta 
+        plataforma, podrás agregar nuevos productos, actualizar información, verificar existencias, y mucho más.</i>
+    </div>
+    <div class="content-wrapper">
+      <div class="menu-left">
+          <div class="menu-left-list">
+            <img src="./Assets/Img/Add.png">
+            <button onclick="location.href='Index.html'">Volver al menú</button>
+            <img src="./Assets/Img/Show.png">
+            <button onclick="location.href='Imprimir.html'">Administrar</button>
+            <img src="./Assets/Img/Delete.png">
+            <button onclick="location.href='Capturar.html'">Agregar producto</button>
+          </div>
+      </div>
+      
+      <div class="content">
+          <!-- Agregar el formulario para capturar los productos -->   
+          <div class="capture-wrapper">
+              <h1>Modifica la orden de lote</h1>
+              <form id="modify-products-content">
+                  <label for="nombre-change">Nombre producto:</label>
+                  <input type="text" id="nombre-change" required>
+                  <br>
+                  <label for="modelo-change">Modelo:</label>
+                  <input type="text" id="modelo-change" required>
+                  <br>
+                  <label for="precio-change">Precio unidad:</label>
+                  <input type="number" id="precio-change" step="0.5" required>
+                  <br>
+                  <label for="cantidad_producto-change">Cantidad de pedido:</label>
+                  <input type="number" id="cantidad_producto-change" required>
+                  <br>
+                  <label for="proveedor-change">Proveedor:</label>
+                  <input type="text" id="proveedor-change" required>
+                  <div class="display-ID">
+                      <span>No. Pedido:</span>
+                      <div id="mostrar_identificador-change"></div>
+                  </div>
+                  <br><br>
+                  <button type="submit">Agregar producto</button>
+              </form>
+          </div>
+      </div>
+  </div>
+    <script type="module" src="./assets/js/index.js"></script>
+  </body>
+</html>

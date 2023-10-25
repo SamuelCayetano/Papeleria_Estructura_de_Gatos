@@ -1,0 +1,88 @@
+<!-- Imprimir.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Papelería</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <div class="margin-up">
+    <h1 class="margin-up-title">PAPELERÍA</h1>
+    <i class="margin-up-p">¡Bienvenido a la página de administración de productos de nuestra papelería!
+
+      Aquí podrás gestionar y controlar todos los productos disponibles en nuestro catálogo. Desde esta
+      plataforma, podrás agregar nuevos productos, actualizar información, verificar existencias, y mucho más.</i>
+  </div>
+  <div class="content-wrapper">
+    <div class="menu-left">
+      <div class="menu-left-list">
+        <img src="./assets/Img/Add.png">
+        <button onclick="location.href='Capturar.html'">Capturar nuevo producto</button>
+        <img src="./assets/Img/Show.png">
+        <button onclick="location.href='Index.html'">Volver al menú</button>
+        <img src="./assets/Img/Delete.png">
+        <button id="activar-zona-borrar">Borrar producto</button>
+      </div>
+    </div>
+
+    <div class="table-area-wrapper">
+      <div class="tools-for-table">
+        <div class="product-searcher">
+          <div class="busca-productos">
+            <input type="text" id="input-producto" placeholder="Buscar ...">
+          </div>
+          <div class="match-search">
+            <ul id="show-coincidences">
+              <!-- <li>coincidencia 1</li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="table-area__btns">
+          <button id="ordenar_alpha">Ordena A - Z</button>
+          <button id="ordenar_fecha">Ordena Fecha</button>
+          <button id="ordenar_stock">Ordena Stock</button>
+        </div>
+      </div>
+      <div id="adding-area">
+        <div class="zona-flotante">
+          <div class="contenido-flotante">
+            <div class="contenido-flotante__header">
+              <h3>Borrar Producto</h3>
+              <button id="desactivar-zona-borrar">X</button>
+            </div>
+            <form id="borrar-producto">
+              <label for="input-borrar">Ingrese el identificador del producto</label>
+              <input type="text" id="input-borrar">
+              <input type="submit" value="Borrar producto">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="content show-table">
+        <h1>Lista de productos</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Modelo</th>
+              <th>Precio unitario</th>
+              <th>Cantidad</th>
+              <th>Proveedor</th>
+              <th>Fecha ingreso</th>
+              <th>Hora ingreso</th>
+              <th>Identificador</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-productos">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./assets/js/index.js"></script>
+</body>
+
+</html>

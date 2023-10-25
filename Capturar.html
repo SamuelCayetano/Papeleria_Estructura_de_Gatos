@@ -1,0 +1,60 @@
+<!-- Capturar.html -->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Papelería</title>
+        <link rel = "stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="margin-up">
+        <h1 class="margin-up-title">PAPELERÍA</h1>
+        <i class="margin-up-p">¡Bienvenido a la página de administración de productos de nuestra papelería!
+  
+          Aquí podrás gestionar y controlar todos los productos disponibles en nuestro catálogo. Desde esta 
+          plataforma, podrás agregar nuevos productos, actualizar información, verificar existencias, y mucho más.</i>
+    </div>
+    <div class="content-wrapper">
+        <div class="menu-left">
+            <div class="menu-left-list">
+              <img src="./Assets/Img/Add.png">
+              <button onclick="location.href='Index.html'">Volver al menú</button>
+              <img src="./Assets/Img/Show.png">
+              <button onclick="location.href='Imprimir.html'">Administrar</button>
+              <img src="./Assets/Img/Delete.png">
+              <button onclick="location.href='Cambio.html'">Cambiar info de lote</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Agregar el formulario para capturar los productos -->   
+            <div class="capture-wrapper">
+                <h1>Capturar productos a inventario</h1>
+                <form id="form-productos">
+                    <label for="nombre">Nombre producto:</label>
+                    <input type="text" id="nombre" required>
+                    <br>
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" required>
+                    <br>
+                    <label for="precio">Precio unidad:</label>
+                    <input type="number" id="precio" step="0.5" required>
+                    <br>
+                    <label for="catidad_producto">Cantidad de pedido:</label>
+                    <input type="number" id="cantidad_producto" required>
+                    <br>
+                    <label for="proveedor">Proveedor:</label>
+                    <input type="text" id="proveedor" required>
+                    <div class="display-ID">
+                        <span>No. Pedido:</span>
+                        <div id="mostrar_identificador"></div>
+                    </div>
+                    <br><br>
+                    <button type="submit">Agregar producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./assets/js/index.js"></script>
+</body>
+</html>
