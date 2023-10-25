@@ -516,12 +516,16 @@ body{
 
 .content tbody tr:nth-child(odd){
     background-color: #A5D5FA;
-    color: #ffffff;
+    color: rgb(28, 28, 88);
+    font-weight: 600;
+    font-size: small;
 }
 
 .content tbody tr:nth-child(even){
     background-color: #90bbdb;
-    color: #ffffff;
+    color: rgb(28, 28, 88);
+    font-weight: 600;
+    font-size: small;
 }
 
 @keyframes showElement {

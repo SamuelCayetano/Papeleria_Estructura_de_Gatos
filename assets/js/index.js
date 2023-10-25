@@ -1,6 +1,5 @@
 'use strict';
 
-import { autoFiller } from "./_auto_filler.js";
 import { HashTable, ingressProducts, searchProduct } from "./_hashTable.js";
 import { createID } from "./_id_creator.js";
 import { productosCoincidentes } from "./_search_bar.js";
@@ -9,7 +8,7 @@ import { bubbleSort } from "./_sorting.js";
 
 // Variables control 
 let storageNew = JSON.parse(localStorage.getItem('storageNew')) ?? new HashTable();
-autoFiller(storageNew, 45);
+// autoFiller(storageNew, 45);
 const identificadorLength = 5;
 const viewId = document.getElementById('mostrar_identificador');
 const formProductos = document.getElementById("form-productos");
@@ -283,87 +282,12 @@ function modifyProducts (event, identificador) {
 
   //Reemplazar con el nuevo producto
   
-  // ingressProducts(storageNew, producto);
+  ingressProducts(storageNew, producto);
 
   // Rellenar nuevamente los campos con la info actual
-  // initChangeForm(identificador);
+  initChangeForm(identificador);
 
   // Reiniciar las banderas de operacion
-  // flagChangeProduct = false;
-  // localStorage.setItem('flagChangeProduct', JSON.stringify(flagChangeProduct));
+  flagChangeProduct = false;
+  localStorage.setItem('flagChangeProduct', JSON.stringify(flagChangeProduct));
 }
-
-// Funcion para confirmacion de borrado de productos
-// // Manejar el evento submit del formulario
-// let formBorrarProductos = document.querySelector("form");
-// let confirmationPanel = document.getElementById("confirmation-panel");
-// let confirmarButton = document.getElementById("confirmar");
-// let cancelarButton = document.getElementById("cancelar");
-// let progressBar = document.getElementById("progress-bar-background");
-// let cancelarCargaButton = document.getElementById("cancelar-carga");
-// // Obtener el identificador del producto a eliminar
-// let identificador = document.getElementById("identificador").value;
-// // Obtener productos almacenados en localStorage
-// let storageNew = JSON.parse(localStorage.getItem('storageNew'));
-// if (storageNew !== null){
-//   // Agregar listener al formulario para mostrar el panel de confirmación
-//   formBorrarProductos.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     confirmationPanel.classList.add("active");
-//   });
-
-//   // Agregar listener al botón de cancelar para ocultar el panel de confirmación
-//   cancelarButton.addEventListener("click", function() {
-//     confirmationPanel.classList.remove("active");
-//   });
-
-//   // Agregar listener al botón de confirmar para mostrar la barra de carga
-//   confirmarButton.addEventListener("click", function() {
-//     progressBar.classList.add("active");
-//     cancelarCargaButton.style.display = "block";
-//     confirmarButton.style.display = "none";
-//     cancelarButton.style.display = "none";
-
-//     // Simular una carga de 5 segundos
-//     timeoutId = setTimeout(() => {
-//       // Recorrer los productos y buscar el que se va a eliminar
-//       for (let i = 0; i < storageNew.length; i++) {
-//         if (storageNew[i].identificador === identificador) {
-//           borrarProducto(event, identificador);
-//           alert("Producto eliminado exitosamente.");
-//           document.getElementById("identificador").value = "";
-//           progressBar.classList.remove("active");
-//           progressBar.style.display = "none";
-//           cancelarCargaButton.style.display = "none";
-//           confirmationPanel.classList.remove("active");
-//           confirmationPanel.style.display = "none";
-//           return;
-//         }
-//         // Si no se encontró el producto, mostrar mensaje de error
-//         alert("No se encontró un producto con el identificador ingresado.");
-//       }
-//       document.getElementById("identificador").value = "";
-//       progressBar.classList.remove("active");
-//       progressBar.style.display = "none";
-//       cancelarCargaButton.style.display = "none";
-//       confirmationPanel.classList.remove("active");
-//       confirmationPanel.style.display = "none";
-//     }, 3000);
-//   });
-// }else {
-//   const notification = document.getElementsById("notification");
-//   notification.classList.add("active");
-// }
-
-// // Agregar listener al botón de cancelar carga para cancelar la carga en progreso
-// cancelarCargaButton.addEventListener("click", function() {
-//   clearTimeout(timeoutId);
-//   progressBar.classList.remove("active");
-//   cancelarCargaButton.style.display = "none";
-//   confirmarButton.style.display = "block";
-//   cancelarButton.style.display = "block";
-// });
-
-
-
-
